@@ -1,0 +1,526 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<meta property="og:title" content="Club Pioneros del Norte">
+<meta property="og:description" content="Club de baloncesto en Bello desde 1998. Categorías Sub 10-12 a Sub 18. Agenda tu clase de cortesía.">
+<meta property="og:image" content="img/compartir.jpg">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#ff6e01">
+<title>Club Pioneros del Norte</title>
+<meta name="description" content="Club de baloncesto formativo en Bello, Antioquia, desde 1998. Categorías Sub 10-12, Sub 13, Sub 15 y Sub 18. Agenda tu clase de cortesía.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@500;600;700&display=swap">
+<style>
+/* Layout: una cancha vista desde arriba. Héroe naranja con líneas de cancha, el resto en negro "duela nocturna"; los horarios se leen como un tablero semanal. */
+:root {
+  --ink: #0e0b09;
+  --court: #17120f;
+  --court-2: #211a15;
+  --line: #342a22;
+  --orange: #ff6e01;
+  --orange-deep: #d95b00;
+  --chalk: #f7f0e8;
+  --muted: #b3a597;
+  --on-orange: #120c07;
+  --display: "Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
+  --body: "Barlow", "Segoe UI", system-ui, sans-serif;
+  --label: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --wrap: 1120px;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; animation: none !important; } }
+body { margin: 0; background: var(--ink); color: var(--chalk); font-family: var(--body); font-size: 1.0625rem; line-height: 1.6; }
+a { color: inherit; }
+img { max-width: 100%; display: block; }
+:focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; border-radius: 4px; }
+
+.wrap { max-width: var(--wrap); margin: 0 auto; padding-inline: 20px; }
+.label { font-family: var(--label); font-weight: 600; text-transform: uppercase; letter-spacing: .12em; font-size: .85rem; color: var(--orange); }
+h1, h2, h3 { font-family: var(--display); text-transform: uppercase; line-height: .95; margin: 0; text-wrap: balance; letter-spacing: .005em; }
+h2 { font-size: clamp(2.4rem, 6vw, 4rem); font-weight: 900; }
+h3 { font-size: 1.6rem; font-weight: 800; }
+p { margin: 0; }
+
+/* ---------- Encabezado ---------- */
+.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: color-mix(in srgb, var(--ink) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+.top .wrap { display: flex; align-items: center; gap: 20px; padding-block: 10px; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; margin-right: auto; }
+.brand img { width: 34px; height: auto; }
+.brand span { font-family: var(--display); font-weight: 900; font-size: 1.35rem; text-transform: uppercase; line-height: 1; }
+.nav { display: flex; gap: 22px; }
+.nav a { font-family: var(--label); font-weight: 600; text-transform: uppercase; letter-spacing: .08em; font-size: .95rem; text-decoration: none; color: var(--muted); }
+.nav a:hover { color: var(--chalk); }
+.btn { display: inline-flex; align-items: center; gap: 8px; font-family: var(--label); font-weight: 700; text-transform: uppercase; letter-spacing: .08em; font-size: 1rem; text-decoration: none; padding: 12px 20px; border-radius: 999px; border: 2px solid transparent; transition: transform .15s ease, background .15s ease; cursor: pointer; }
+.btn:hover { transform: translateY(-2px); }
+.btn-orange { background: var(--orange); color: var(--on-orange); }
+.btn-dark { background: var(--on-orange); color: var(--chalk); }
+.btn-ghost { border-color: var(--on-orange); color: var(--on-orange); }
+.top .btn { padding: 9px 16px; font-size: .9rem; }
+@media (max-width: 860px) { .nav { display: none; } }
+@media (max-width: 420px) { .brand span { font-size: 1.1rem; } .top .btn { padding: 8px 12px; font-size: .8rem; } }
+
+/* ---------- Héroe ---------- */
+.hero { background: var(--orange); color: var(--on-orange); position: relative; overflow: hidden; }
+.hero svg.court { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.hero .wrap { position: relative; display: grid; grid-template-columns: 1.35fr .85fr; gap: 40px; align-items: center; padding-block: clamp(48px, 8vw, 96px); }
+.hero-copy { min-width: 0; display: grid; gap: 22px; }
+.hero .kicker { font-family: var(--label); font-weight: 700; text-transform: uppercase; letter-spacing: .14em; font-size: .95rem; }
+.hero h1 { font-size: clamp(3rem, 8vw, 6.4rem); font-weight: 900; }
+.hero h1 em { font-style: normal; color: var(--chalk); -webkit-text-stroke: 0; }
+.hero .lead { font-size: 1.2rem; font-weight: 500; max-width: 34ch; }
+.hero .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.hero-logo { justify-self: center; width: min(100%, 330px); filter: drop-shadow(0 18px 30px rgba(60, 20, 0, .35)); }
+.stats { display: flex; flex-wrap: wrap; gap: 0; border-top: 2px solid var(--on-orange); margin-top: 8px; }
+.stats div { padding: 14px 28px 0 0; margin-right: 28px; }
+.stats div + div { border-left: 2px solid color-mix(in srgb, var(--on-orange) 30%, transparent); padding-left: 28px; }
+.stats b { display: block; font-family: var(--display); font-size: 2.6rem; font-weight: 900; line-height: 1; }
+.stats span { font-family: var(--label); font-weight: 600; text-transform: uppercase; letter-spacing: .1em; font-size: .85rem; }
+@media (max-width: 820px) {
+  .hero .wrap { grid-template-columns: 1fr; }
+  .hero-logo { grid-row: 1; width: 170px; justify-self: start; }
+}
+@media (max-width: 480px) { .stats div { padding-right: 14px; margin-right: 14px; } .stats div + div { padding-left: 14px; } .stats b { font-size: 2rem; } }
+
+/* ---------- Secciones ---------- */
+section { padding-block: clamp(64px, 9vw, 110px); }
+.sec-head { display: grid; gap: 14px; margin-bottom: 40px; max-width: 760px; }
+.sec-head p { color: var(--muted); font-size: 1.1rem; max-width: 60ch; }
+.alt { background: var(--court); border-block: 1px solid var(--line); }
+
+/* Buscador de categoría */
+.finder { display: grid; grid-template-columns: 1fr 1.2fr; gap: 0; border: 1px solid var(--line); border-radius: 18px; overflow: hidden; background: var(--court-2); }
+.finder-in { padding: 32px; display: grid; gap: 16px; align-content: start; border-right: 1px solid var(--line); }
+.finder label { font-family: var(--label); font-weight: 600; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); font-size: .9rem; }
+.finder select { font: 700 2.4rem/1 var(--display); color: var(--chalk); background: var(--ink); border: 2px solid var(--line); border-radius: 12px; padding: 12px 16px; width: 100%; max-width: 260px; cursor: pointer; }
+.finder select:focus { border-color: var(--orange); outline: none; }
+.finder .hint { color: var(--muted); font-size: .95rem; }
+.finder-out { padding: 32px; display: grid; gap: 14px; align-content: start; min-width: 0; }
+.finder-out .cat { font-family: var(--display); font-weight: 900; font-size: clamp(3rem, 8vw, 5rem); line-height: .9; color: var(--orange); text-transform: uppercase; }
+.finder-out .sessions { display: grid; gap: 6px; font-size: 1.05rem; }
+.finder-out .sessions div { display: flex; gap: 12px; }
+.finder-out .sessions b { min-width: 92px; font-family: var(--label); text-transform: uppercase; letter-spacing: .06em; }
+.finder-out .note { color: var(--muted); font-size: .95rem; }
+@media (max-width: 760px) { .finder { grid-template-columns: 1fr; } .finder-in { border-right: 0; border-bottom: 1px solid var(--line); } }
+
+/* Tablero semanal */
+.board-scroll { overflow-x: auto; margin-top: 56px; }
+.board { width: 100%; min-width: 620px; border-collapse: separate; border-spacing: 8px; font-variant-numeric: tabular-nums; }
+.board th { font-family: var(--label); font-weight: 700; text-transform: uppercase; letter-spacing: .12em; font-size: .95rem; color: var(--muted); text-align: left; padding: 0 4px 6px; }
+.board th.day { color: var(--chalk); }
+.board td { vertical-align: top; }
+.board td.cat-name { font-family: var(--display); font-weight: 900; font-size: 1.7rem; text-transform: uppercase; line-height: 1; white-space: nowrap; padding-top: 14px; }
+.board td.cat-name small { display: block; font-family: var(--label); font-weight: 600; font-size: .8rem; letter-spacing: .1em; color: var(--muted); margin-top: 6px; }
+.slot { background: var(--court-2); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; font-family: var(--display); font-weight: 800; font-size: 1.5rem; line-height: 1; }
+.slot span { display: block; font-family: var(--label); font-weight: 600; font-size: .8rem; letter-spacing: .1em; color: var(--muted); text-transform: uppercase; margin-top: 6px; }
+.slot.on { border-color: var(--orange); box-shadow: inset 4px 0 0 var(--orange); }
+.slot.off { background: transparent; border-style: dashed; color: var(--line); font-size: 1rem; font-family: var(--label); }
+
+/* El club */
+.club-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 56px; align-items: start; }
+.club-grid > * { min-width: 0; }
+.story { display: grid; gap: 18px; font-size: 1.12rem; }
+.story p { max-width: 62ch; }
+.mv { display: grid; gap: 20px; }
+.mv article { border-top: 2px solid var(--orange); padding-top: 16px; display: grid; gap: 8px; }
+.mv p { color: var(--muted); }
+.values { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; margin-top: 64px; }
+.values div { background: var(--court); padding: 26px 22px; display: grid; gap: 8px; align-content: start; }
+.values h3 { font-size: 1.5rem; }
+.values p { color: var(--muted); font-size: .98rem; }
+@media (max-width: 860px) { .club-grid { grid-template-columns: 1fr; gap: 40px; } .values { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 460px) { .values { grid-template-columns: 1fr; } }
+
+/* Formación integral */
+.pillars { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.pillars div { padding: 24px 0 0; border-top: 1px solid var(--line); display: grid; gap: 8px; }
+.pillars b { font-family: var(--display); font-weight: 900; font-size: 1.9rem; text-transform: uppercase; line-height: 1; }
+.pillars p { color: var(--muted); font-size: .98rem; }
+@media (max-width: 860px) { .pillars { grid-template-columns: repeat(2, 1fr); gap: 28px 20px; } }
+
+/* Inscripción */
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 48px; counter-reset: s; }
+.steps li { list-style: none; display: grid; gap: 8px; padding: 24px; background: var(--court-2); border: 1px solid var(--line); border-radius: 16px; }
+.steps li::before { counter-increment: s; content: "Paso " counter(s); font-family: var(--label); font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--orange); font-size: .85rem; }
+.steps p { color: var(--muted); font-size: .98rem; }
+.steps { padding: 0; margin-top: 0; }
+.prices { display: grid; grid-template-columns: 1fr; max-width: 640px; }
+.price { display: flex; align-items: baseline; gap: 16px; padding: 20px 0; border-bottom: 1px solid var(--line); }
+.price .what { flex: 1; min-width: 0; }
+.price .what b { display: block; font-size: 1.15rem; font-weight: 600; }
+.price .what span { color: var(--muted); font-size: .95rem; }
+.price .cost { font-family: var(--display); font-weight: 900; font-size: 2.2rem; line-height: 1; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.price.feature .cost { color: var(--orange); }
+.fine { color: var(--muted); font-size: .92rem; margin-top: 20px; }
+@media (max-width: 860px) { .steps { grid-template-columns: 1fr; } .prices { grid-template-columns: 1fr; } }
+
+/* Cortesía */
+.cta { background: var(--orange); color: var(--on-orange); border-radius: 24px; padding: clamp(32px, 6vw, 64px); display: grid; grid-template-columns: 1.4fr 1fr; gap: 32px; align-items: center; position: relative; overflow: hidden; }
+.cta > * { position: relative; min-width: 0; }
+.cta h2 { font-size: clamp(2.4rem, 6vw, 4.2rem); }
+.cta p { font-size: 1.15rem; font-weight: 500; max-width: 42ch; margin-top: 14px; }
+.cta .actions { display: grid; gap: 12px; justify-items: start; }
+.cta .num { font-family: var(--display); font-weight: 900; font-size: 2rem; letter-spacing: .02em; user-select: all; }
+.cta .ring { position: absolute; right: -120px; top: -120px; width: 420px; height: 420px; border: 3px solid color-mix(in srgb, var(--on-orange) 18%, transparent); border-radius: 50%; }
+@media (max-width: 760px) { .cta { grid-template-columns: 1fr; } }
+
+/* Contacto */
+.contact { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.contact > div { background: var(--court-2); border: 1px solid var(--line); border-radius: 16px; padding: 24px; display: grid; gap: 10px; align-content: start; min-width: 0; }
+.contact .v { font-size: 1.15rem; font-weight: 600; overflow-wrap: anywhere; user-select: all; }
+.contact .row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.mini { font-family: var(--label); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; font-size: .8rem; color: var(--chalk); background: transparent; border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; cursor: pointer; text-decoration: none; }
+.mini:hover { border-color: var(--orange); color: var(--orange); }
+.board-members { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 16px; }
+.board-members div { padding: 18px 0; border-top: 1px solid var(--line); }
+.board-members span { display: block; font-family: var(--label); font-weight: 600; text-transform: uppercase; letter-spacing: .1em; font-size: .8rem; color: var(--muted); }
+.board-members b { font-weight: 600; }
+@media (max-width: 860px) { .contact, .board-members { grid-template-columns: 1fr; } }
+
+/* Fotos */
+.photos { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 64px; }
+.photos figure { margin: 0; position: relative; border-radius: 18px; overflow: hidden; background: var(--court-2); aspect-ratio: 4 / 5; max-width: 100%; }
+.photos img { width: 100%; height: 100%; object-fit: cover; }
+.ph-a img { object-position: 40% 70%; }
+.photos figcaption { position: absolute; inset: auto 0 0 0; padding: 60px 24px 22px; background: linear-gradient(to top, rgba(14,11,9,.92), rgba(14,11,9,0)); display: grid; gap: 4px; }
+.photos figcaption b { font-family: var(--display); font-weight: 900; font-size: 1.7rem; text-transform: uppercase; line-height: 1; }
+.photos figcaption span { color: var(--chalk); font-size: .98rem; max-width: 40ch; }
+@media (max-width: 640px) { .photos { grid-template-columns: 1fr; } }
+
+/* Uniformes */
+.kits { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.kit { border: 1px solid var(--line); border-radius: 18px; overflow: hidden; background: var(--court-2); display: flex; flex-direction: column; min-width: 0; }
+.kit-img { position: relative; background: #1a1612; aspect-ratio: 1 / 1; width: 100%; max-width: 100%; overflow: hidden; }
+.kit-img.light { background: #ece9e4; }
+.kit-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+.kit-info { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 10px 16px; padding: 22px 28px 24px; border-top: 1px solid var(--line); margin-top: auto; }
+.kit-info > div { min-width: 0; }
+.kit-info span { display: block; color: var(--muted); font-size: .95rem; margin-top: 6px; }
+.kit-info .cost { font-family: var(--display); font-weight: 900; font-size: 2.2rem; line-height: 1; color: var(--orange); white-space: nowrap; }
+@media (max-width: 700px) { .kits { grid-template-columns: 1fr; } }
+
+footer { border-top: 1px solid var(--line); padding-block: 40px; color: var(--muted); font-size: .92rem; }
+footer .wrap { display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: center; }
+footer img { width: 64px; }
+footer p + p { margin-top: 6px; }
+</style>
+</head>
+<body>
+
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#inicio"><img src="img/escudo.png" alt="Escudo del Club Pioneros del Norte"><span>Pioneros del Norte</span></a>
+    <nav class="nav" aria-label="Secciones">
+      <a href="#categorias">Categorías</a>
+      <a href="#club">El club</a>
+      <a href="#inscripcion">Inscripción</a>
+      <a href="#uniformes">Uniformes</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <a class="btn btn-orange" href="#cortesia">Clase de cortesía</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="inicio" style="padding-block:0">
+    <svg class="court" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <g fill="none" stroke="#120c07" stroke-opacity=".13" stroke-width="4">
+        <rect x="-10" y="40" width="1220" height="620"></rect>
+        <line x1="600" y1="40" x2="600" y2="660"></line>
+        <circle cx="600" cy="350" r="90"></circle>
+        <rect x="1000" y="250" width="210" height="200"></rect>
+        <circle cx="1000" cy="350" r="90"></circle>
+        <path d="M1210 90 H1150 A300 300 0 0 0 1150 610 H1210"></path>
+        <rect x="-10" y="250" width="210" height="200"></rect>
+        <path d="M-10 90 H50 A300 300 0 0 1 50 610 H-10"></path>
+      </g>
+    </svg>
+    <div class="wrap">
+      <div class="hero-copy">
+        <div class="kicker">Club de baloncesto · Placa Deportiva El Carmen, Bello</div>
+        <h1>Formando jugadores en Bello <em>desde 1998</em></h1>
+        <p class="lead">Baloncesto para niños y jóvenes nacidos entre 2008 y 2016, con entrenadores calificados y formación física, técnica, táctica y psicológica.</p>
+        <div class="actions">
+          <a class="btn btn-dark" href="#cortesia">Agenda tu clase de cortesía</a>
+          <a class="btn btn-ghost" href="#categorias">Ver horarios</a>
+        </div>
+        <div class="stats">
+          <div><b id="years">28</b><span>Años de historia</span></div>
+          <div><b>4</b><span>Categorías</span></div>
+          <div><b>3</b><span>Entrenos por semana</span></div>
+        </div>
+      </div>
+      <img class="hero-logo" src="img/logo-completo.png" alt="Logo del Club Pioneros del Norte, desde 1998">
+    </div>
+  </section>
+
+  <section id="categorias">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="label">Categorías y horarios</div>
+        <h2>¿En qué categoría juega?</h2>
+        <p>La categoría se define por el año de nacimiento: cuenta la edad que el jugador cumple este año, hasta el 31 de diciembre.</p>
+      </div>
+
+      <div class="finder">
+        <div class="finder-in">
+          <label for="year">Año de nacimiento</label>
+          <select id="year"></select>
+          <p class="hint">Elige el año y te mostramos la categoría y los días de entrenamiento.</p>
+        </div>
+        <div class="finder-out" aria-live="polite">
+          <div class="label">Categoría</div>
+          <div class="cat" id="cat-out">Sub 10-12</div>
+          <div class="sessions" id="ses-out"></div>
+          <p class="note" id="note-out"></p>
+        </div>
+      </div>
+
+      <div class="board-scroll">
+        <table class="board" aria-label="Horario semanal de entrenamientos">
+          <thead>
+            <tr><th scope="col">Categoría</th><th scope="col" class="day">Lunes</th><th scope="col" class="day">Miércoles</th><th scope="col" class="day">Viernes</th></tr>
+          </thead>
+          <tbody id="board-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt" id="club">
+    <div class="wrap">
+      <div class="club-grid">
+        <div class="story">
+          <div class="label">El club</div>
+          <h2>Más que baloncesto</h2>
+          <p>Desde 1998, el Club Pioneros ha sido en Bello un espacio para que niños y jóvenes vivan su pasión por el baloncesto y formen su carácter en un ambiente de valores y compañerismo.</p>
+          <p>Contamos con entrenadores calificados y con un grupo de padres comprometidos que apoyan el crecimiento del club. Buscamos que cada jugador crezca dentro de la cancha y también fuera de ella.</p>
+        </div>
+        <div class="mv">
+          <article>
+            <h3>Misión</h3>
+            <p>Promover el baloncesto como medio para el desarrollo integral de los jóvenes, con trabajo en equipo, compromiso y superación personal, en un ambiente de formación deportiva de calidad.</p>
+          </article>
+          <article>
+            <h3>Visión</h3>
+            <p>Ser un referente del baloncesto juvenil, reconocido por su excelencia deportiva y por formar atletas comprometidos con su desarrollo personal y con la comunidad.</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="values">
+        <div><h3>Compromiso</h3><p>Con el desarrollo personal de cada jugador y con los objetivos del club.</p></div>
+        <div><h3>Trabajo en equipo</h3><p>Juntos alcanzamos metas más grandes.</p></div>
+        <div><h3>Respeto</h3><p>Por compañeros, entrenadores, rivales y árbitros.</p></div>
+        <div><h3>Superación</h3><p>Mejorar siempre, en lo deportivo y en lo personal.</p></div>
+      </div>
+
+      <div class="photos">
+        <figure class="ph-a"><img src="img/entrenamiento-1.jpg" alt="Jugadores del club con camisilla naranja entrenando de noche en la Placa Deportiva El Carmen" loading="lazy"></figure>
+        <figure class="ph-b"><img src="img/entrenamiento-2.jpg" alt="El entrenador reúne al equipo en el centro de la cancha antes del entrenamiento" loading="lazy">
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="label">Formación integral</div>
+        <h2>Cómo entrenamos</h2>
+        <p>Nuestros programas trabajan cuatro frentes, porque un buen jugador se construye completo.</p>
+      </div>
+      <div class="pillars">
+        <div><b>Físico</b><p>Coordinación, velocidad, resistencia y fuerza adecuadas a cada edad.</p></div>
+        <div><b>Técnico</b><p>Fundamentos: manejo de balón, pase, tiro, rebote y defensa.</p></div>
+        <div><b>Táctico</b><p>Lectura del juego, sistemas ofensivos y defensivos, y juego en equipo.</p></div>
+        <div><b>Psicológico</b><p>Disciplina, confianza, manejo de la presión y trabajo con otros.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt" id="inscripcion">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="label">Inscripción</div>
+        <h2>Así se entra al club</h2>
+      </div>
+      <ol class="steps">
+        <li><h3>Clase de cortesía</h3><p>Ven a un entrenamiento de tu categoría sin costo y conoce al equipo.</p></li>
+        <li><h3>Matrícula</h3><p>Pagas la matrícula, que ya incluye la primera mensualidad.</p></li>
+        <li><h3>A entrenar</h3><p>Desde el segundo mes pagas la mensualidad y sigues entrenando tres veces por semana.</p></li>
+      </ol>
+
+      <div class="prices">
+        <div>
+          <div class="price feature"><div class="what"><b>Matrícula</b><span>Incluye la primera mensualidad</span></div><div class="cost">$85.000</div></div>
+          <div class="price"><div class="what"><b>Mensualidad</b><span>Desde el segundo mes</span></div><div class="cost">$65.000</div></div>
+        </div>
+      </div>
+      <p class="fine">Valores en pesos colombianos. Los datos para el pago te los enviamos por WhatsApp.</p>
+    </div>
+  </section>
+
+  <section id="uniformes">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="label">Uniformes</div>
+        <h2>Los colores del club</h2>
+        <p>Naranja y negro, con el escudo al pecho. La camisilla es para entrenar; el uniforme completo es para los partidos y torneos.</p>
+      </div>
+      <div class="kits">
+        <article class="kit">
+          <div class="kit-img light"><img src="img/uniforme-entrenamiento.jpg" alt="Camisilla de entrenamiento naranja con el escudo al frente y 'Pioneros Basketball' atrás" loading="lazy"></div>
+          <div class="kit-info"><div><h3>Entrenamiento</h3><span>Camisilla</span></div><div class="cost">$45.000</div></div>
+        </article>
+        <article class="kit">
+          <div class="kit-img"><img src="img/uniforme-competencia.jpg" alt="Uniforme de competencia naranja y negro, camiseta y pantaloneta, con nombre y número personalizados" loading="lazy"></div>
+          <div class="kit-info"><div><h3>Competencia</h3><span>Uniforme completo · con nombre y número</span></div><div class="cost">$80.000</div></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="cortesia">
+    <div class="wrap">
+      <div class="cta">
+        <div class="ring" aria-hidden="true"></div>
+        <div>
+          <h2>Tu primera clase va por cuenta del club</h2>
+          <p>Escríbenos con el nombre y la fecha de nacimiento del jugador. Te decimos su categoría y agendamos la clase en el próximo entrenamiento.</p>
+        </div>
+        <div class="actions">
+          <a class="btn btn-dark" href="https://wa.me/573177406028?text=Hola%2C%20quiero%20agendar%20una%20clase%20de%20cortes%C3%ADa%20en%20Pioneros%20del%20Norte" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+          <div class="num">317 740 6028</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt" id="contacto">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="label">Contacto</div>
+        <h2>Encuéntranos</h2>
+      </div>
+      <div class="contact">
+        <div>
+          <div class="label">Dónde entrenamos</div>
+          <div class="v">Placa Deportiva El Carmen<br>Bello, Antioquia</div>
+          <div class="row"><a class="mini" href="https://share.google/96Yk4EBzwAdzpKjxh" target="_blank" rel="noopener">Ver en el mapa</a></div>
+        </div>
+        <div>
+          <div class="label">Teléfono y WhatsApp</div>
+          <div class="v" id="tel">317 740 6028</div>
+          <div class="row"><button class="mini" type="button" data-copy="3177406028">Copiar número</button></div>
+        </div>
+        <div>
+          <div class="label">Correo</div>
+          <div class="v" id="mail">pionerosbello@gmail.com</div>
+          <div class="row"><button class="mini" type="button" data-copy="pionerosbello@gmail.com">Copiar correo</button></div>
+        </div>
+      </div>
+
+      <div class="sec-head" style="margin:56px 0 0">
+        <div class="label">Equipo del club</div>
+      </div>
+      <div class="board-members">
+        <div><span>Presidente</span><b>Efraín Ángel Peña Lopera</b></div>
+        <div><span>Metodología</span><b>Jeferson Mira Espinosa</b></div>
+        <div><span>Entrenador</span><b>Emanuel Barrios Castrillon</b></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="img/escudo.png" alt="">
+    <div>
+      <p><b style="color:var(--chalk)">Club Pioneros del Norte</b> · Bello, Antioquia · Desde 1998</p>
+      <p>Entrenamos en la Placa Deportiva El Carmen · Dirección del club: Carrera 62 # 57A-14, Bello</p>
+      <p>Asociación deportiva de derecho privado, sin ánimo de lucro, regida por la Ley 181 de 1995 y sus normas reglamentarias.</p>
+      <p><a href="politica-de-privacidad.html">Política de privacidad</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var CATS = [
+    { name: 'Sub 10-12', min: 10, max: 12, s: { lu: null, mi: ['6:00', '7:30 pm'], vi: ['6:00', '7:30 pm'] } },
+    { name: 'Sub 13',    min: 13, max: 13, s: { lu: ['5:30', '7:00 pm'], mi: ['7:30', '9:20 pm'], vi: ['7:30', '9:20 pm'] } },
+    { name: 'Sub 15',    min: 14, max: 15, s: { lu: ['5:30', '7:00 pm'], mi: ['7:30', '9:20 pm'], vi: ['7:30', '9:20 pm'] } },
+    { name: 'Sub 18',    min: 16, max: 18, s: { lu: ['5:30', '7:00 pm'], mi: ['7:30', '9:20 pm'], vi: ['7:30', '9:20 pm'] } }
+  ];
+  var DAYS = [['lu', 'Lunes'], ['mi', 'Miércoles'], ['vi', 'Viernes']];
+  var year = Number(new Intl.DateTimeFormat('en', { timeZone: 'America/Bogota', year: 'numeric' }).format(new Date()));
+
+  document.getElementById('years').textContent = year - 1998;
+
+  function yearsText(c) {
+    var a = year - c.max, b = year - c.min;
+    return a === b ? 'Nacidos en ' + a : 'Nacidos ' + a + '–' + b;
+  }
+
+  // Tablero
+  var body = document.getElementById('board-body');
+  CATS.forEach(function (c, i) {
+    var tr = document.createElement('tr');
+    tr.dataset.i = i;
+    var html = '<td class="cat-name">' + c.name + '<small>' + yearsText(c) + '</small></td>';
+    DAYS.forEach(function (d) {
+      var t = c.s[d[0]];
+      html += t ? '<td><div class="slot">' + t[0] + '<span>a ' + t[1] + '</span></div></td>'
+                : '<td><div class="slot off">Descanso</div></td>';
+    });
+    tr.innerHTML = html;
+    body.appendChild(tr);
+  });
+
+  // Buscador
+  var sel = document.getElementById('year');
+  for (var y = year - 18; y <= year - 10; y++) {
+    var o = document.createElement('option'); o.value = y; o.textContent = y; sel.appendChild(o);
+  }
+  var outCat = document.getElementById('cat-out'), outSes = document.getElementById('ses-out'), outNote = document.getElementById('note-out');
+
+  function update() {
+    var age = year - Number(sel.value);
+    var idx = CATS.findIndex(function (c) { return age >= c.min && age <= c.max; });
+    document.querySelectorAll('#board-body tr').forEach(function (tr) {
+      tr.querySelectorAll('.slot:not(.off)').forEach(function (s) { s.classList.toggle('on', Number(tr.dataset.i) === idx); });
+    });
+    if (idx < 0) { outCat.textContent = '—'; outSes.innerHTML = ''; outNote.textContent = 'Escríbenos y te orientamos.'; return; }
+    var c = CATS[idx];
+    outCat.textContent = c.name;
+    outSes.innerHTML = DAYS.filter(function (d) { return c.s[d[0]]; }).map(function (d) {
+      var t = c.s[d[0]]; return '<div><b>' + d[1] + '</b>' + t[0] + ' a ' + t[1] + '</div>';
+    }).join('');
+    outNote.textContent = 'Cumple ' + age + ' años en ' + year + '.';
+  }
+  sel.value = year - 11;
+  sel.addEventListener('change', update);
+  update();
+
+  // Copiar
+  document.querySelectorAll('[data-copy]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var label = b.textContent;
+      function done(msg) { b.textContent = msg; setTimeout(function () { b.textContent = label; }, 1600); }
+      try {
+        navigator.clipboard.writeText(b.dataset.copy).then(function () { done('Copiado'); }, function () { done('Selecciónalo arriba'); });
+      } catch (e) { done('Selecciónalo arriba'); }
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
