@@ -3,274 +3,287 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Club Pioneros del Norte · Baloncesto en Bello desde 1998</title>
+<meta name="description" content="Club de baloncesto formativo en Bello, Antioquia, desde 1998. Categorías Sub 10-12, Sub 13, Sub 15 y Sub 18. Agenda tu clase de cortesía.">
 <link rel="icon" type="image/png" href="img/favicon.png">
 <meta property="og:title" content="Club Pioneros del Norte">
 <meta property="og:description" content="Club de baloncesto en Bello desde 1998. Categorías Sub 10-12 a Sub 18. Agenda tu clase de cortesía.">
 <meta property="og:image" content="img/compartir.jpg">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#ff6e01">
-<title>Club Pioneros del Norte</title>
-<meta name="description" content="Club de baloncesto formativo en Bello, Antioquia, desde 1998. Categorías Sub 10-12, Sub 13, Sub 15 y Sub 18. Agenda tu clase de cortesía.">
-<link rel="preload" href="fonts/big-shoulders-display-latin-900-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="fonts/barlow-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<meta property="og:locale" content="es_CO">
+<meta name="theme-color" content="#ffffff">
+<link rel="preload" href="fonts/anton-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/archivo-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="img/entrenamiento-1.webp" as="image" type="image/webp" fetchpriority="high" media="(min-width: 721px)">
+<link rel="preload" href="img/entrenamiento-1-sm.webp" as="image" type="image/webp" fetchpriority="high" media="(max-width: 720px)">
 <style>
-@font-face { font-family: "Big Shoulders Display"; font-weight: 800; font-style: normal; font-display: swap; src: url("fonts/big-shoulders-display-latin-800-normal.woff2") format("woff2"); }
-@font-face { font-family: "Big Shoulders Display"; font-weight: 900; font-style: normal; font-display: swap; src: url("fonts/big-shoulders-display-latin-900-normal.woff2") format("woff2"); }
-@font-face { font-family: "Barlow"; font-weight: 400; font-style: normal; font-display: swap; src: url("fonts/barlow-latin-400-normal.woff2") format("woff2"); }
-@font-face { font-family: "Barlow"; font-weight: 500; font-style: normal; font-display: swap; src: url("fonts/barlow-latin-500-normal.woff2") format("woff2"); }
-@font-face { font-family: "Barlow"; font-weight: 600; font-style: normal; font-display: swap; src: url("fonts/barlow-latin-600-normal.woff2") format("woff2"); }
-@font-face { font-family: "Barlow"; font-weight: 700; font-style: normal; font-display: swap; src: url("fonts/barlow-latin-700-normal.woff2") format("woff2"); }
-@font-face { font-family: "Barlow Condensed"; font-weight: 600; font-style: normal; font-display: swap; src: url("fonts/barlow-condensed-latin-600-normal.woff2") format("woff2"); }
-@font-face { font-family: "Barlow Condensed"; font-weight: 700; font-style: normal; font-display: swap; src: url("fonts/barlow-condensed-latin-700-normal.woff2") format("woff2"); }
-/* Layout: una cancha vista desde arriba. Héroe naranja con líneas de cancha, el resto en negro "duela nocturna"; los horarios se leen como un tablero semanal. */
+@font-face { font-family: "Anton"; font-weight: 400; font-display: swap; src: url("fonts/anton-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Archivo"; font-weight: 400; font-display: swap; src: url("fonts/archivo-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Archivo"; font-weight: 500; font-display: swap; src: url("fonts/archivo-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Archivo"; font-weight: 600; font-display: swap; src: url("fonts/archivo-latin-600-normal.woff2") format("woff2"); }
+@font-face { font-family: "Archivo"; font-weight: 700; font-display: swap; src: url("fonts/archivo-latin-700-normal.woff2") format("woff2"); }
+
 :root {
-  --ink: #0e0b09;
-  --court: #17120f;
-  --court-2: #211a15;
-  --line: #342a22;
+  /* Negro, blanco y un gris de apoyo; el naranja del club es el único color. */
+  --ink: #111111;
+  --charcoal: #39393b;
+  --mute: #6b6b6d;
+  --hairline: #cacacb;
+  --hairline-soft: #e5e5e5;
+  --cloud: #f5f5f5;
+  --canvas: #ffffff;
   --orange: #ff6e01;
-  --orange-deep: #d95b00;
-  --chalk: #f7f0e8;
-  --muted: #b3a597;
-  --on-orange: #120c07;
-  --display: "Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
-  --body: "Barlow", "Segoe UI", system-ui, sans-serif;
-  --label: "Barlow Condensed", "Arial Narrow", sans-serif;
-  --wrap: 1120px;
-  color-scheme: dark;
+  --orange-text: #b84700;   /* naranja legible sobre blanco (4.9:1) */
+  --display: "Anton", "Archivo Narrow", sans-serif;
+  --ui: "Archivo", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --gutter: clamp(16px, 4vw, 48px);
+  --max: 1440px;
+  color-scheme: light;
 }
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; animation: none !important; } }
-body { margin: 0; background: var(--ink); color: var(--chalk); font-family: var(--body); font-size: 1.0625rem; line-height: 1.6; }
-a { color: inherit; }
-::selection { background: var(--orange); color: var(--on-orange); }
-html { scrollbar-color: var(--line) var(--ink); accent-color: var(--orange); caret-color: var(--orange); }
-a { text-underline-offset: .2em; }
-section[id], main [id] { scroll-margin-top: 76px; }
-img { max-width: 100%; display: block; }
-:focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; border-radius: 4px; }
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; scrollbar-color: var(--hairline) var(--canvas); accent-color: var(--ink); caret-color: var(--orange); }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body { margin: 0; background: var(--canvas); color: var(--ink); font: 400 1rem/1.5 var(--ui); -webkit-font-smoothing: antialiased; -webkit-tap-highlight-color: transparent; }
+::selection { background: var(--orange); color: var(--ink); }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-underline-offset: .22em; text-decoration-thickness: 1px; }
+button, a, select { touch-action: manipulation; }
+:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-radius: 4px; }
+h1, h2, h3, p { margin: 0; }
+h1, h2, h3 { text-wrap: balance; }
+p { text-wrap: pretty; }
+[id] { scroll-margin-top: 104px; }
 
-.wrap { max-width: var(--wrap); margin: 0 auto; padding-inline: 20px; }
-.label { font-family: var(--label); font-weight: 600; text-transform: uppercase; letter-spacing: .12em; font-size: .85rem; color: var(--orange); }
-h1, h2, h3 { font-family: var(--display); text-transform: uppercase; line-height: .95; margin: 0; text-wrap: balance; letter-spacing: .005em; }
-h2 { font-size: clamp(2.4rem, 6vw, 4rem); font-weight: 900; }
-h3 { font-size: 1.6rem; font-weight: 800; }
-p { margin: 0; }
+.wrap { max-width: var(--max); margin: 0 auto; padding-inline: max(var(--gutter), env(safe-area-inset-left)) max(var(--gutter), env(safe-area-inset-right)); }
+.skip { position: absolute; left: 12px; top: -60px; z-index: 50; background: var(--ink); color: var(--canvas); padding: 10px 18px; border-radius: 30px; font-weight: 500; text-decoration: none; }
+.skip:focus { top: 12px; }
 
-/* ---------- Encabezado ---------- */
-.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: color-mix(in srgb, var(--ink) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
-.top .wrap { display: flex; align-items: center; gap: 20px; padding-block: 10px; }
-.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; margin-right: auto; }
+/* ── Botones: píldoras ─────────────────────────── */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; padding: 12px 28px; border-radius: 30px; border: 0; font: 500 1rem/1.2 var(--ui); text-decoration: none; cursor: pointer; transition: background-color .2s ease, color .2s ease, transform .15s ease; white-space: nowrap; }
+.btn:active { transform: scale(.97); }
+.btn-ink { background: var(--ink); color: var(--canvas); }
+.btn-ink:hover { background: #3a3a3c; }
+.btn-cloud { background: var(--cloud); color: var(--ink); }
+.btn-cloud:hover { background: var(--hairline-soft); }
+.btn-white { background: var(--canvas); color: var(--ink); }
+.btn-white:hover { background: var(--hairline-soft); }
+.btn-orange { background: var(--orange); color: var(--ink); }
+.btn-orange:hover { background: #ff8a33; }
+.btn svg { width: 20px; height: 20px; flex: none; }
+.link { font-weight: 500; text-decoration: underline; }
+.link:hover { color: var(--orange-text); }
+
+/* ── Barra superior y navegación ───────────────── */
+.utility { background: var(--cloud); font-size: .78rem; font-weight: 500; }
+.utility .wrap { display: flex; justify-content: space-between; align-items: center; min-height: 36px; gap: 16px; }
+.utility a { text-decoration: none; }
+.utility a:hover { text-decoration: underline; }
+.utility span { color: var(--charcoal); }
+.top { position: sticky; top: 0; z-index: 20; background: var(--canvas); box-shadow: inset 0 -1px 0 var(--hairline-soft); }
+.top .wrap { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; min-height: 64px; gap: 16px; }
+.brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font: 400 1.2rem/1 var(--display); text-transform: uppercase; letter-spacing: .01em; }
 .brand img { width: 34px; height: auto; }
-.brand span { font-family: var(--display); font-weight: 900; font-size: 1.35rem; text-transform: uppercase; line-height: 1; }
-.nav { display: flex; gap: 22px; }
-.nav a { font-family: var(--label); font-weight: 600; text-transform: uppercase; letter-spacing: .08em; font-size: .95rem; text-decoration: none; color: var(--muted); }
-.nav a:hover { color: var(--chalk); }
+.nav { display: flex; gap: 4px; }
+.nav a { padding: 10px 14px; font-weight: 500; text-decoration: none; border-radius: 30px; transition: background-color .2s ease; }
+.nav a:hover { background: var(--cloud); }
+.top .btn { justify-self: end; min-height: 40px; padding: 8px 20px; font-size: .95rem; }
 .nav-m { display: none; }
-.btn { display: inline-flex; align-items: center; gap: 8px; font-family: var(--label); font-weight: 700; text-transform: uppercase; letter-spacing: .08em; font-size: 1rem; text-decoration: none; padding: 12px 20px; border-radius: 999px; border: 2px solid transparent; transition: transform .15s ease, background .15s ease; cursor: pointer; }
-.btn:hover { transform: translateY(-2px); }
-.btn:active { transform: translateY(0); }
-.btn-orange:hover { background: #ff8326; }
-.btn-dark:hover { background: #2a1d14; }
-.btn-ghost:hover { background: color-mix(in srgb, var(--on-orange) 10%, transparent); }
-.btn-orange { background: var(--orange); color: var(--on-orange); }
-.btn-dark { background: var(--on-orange); color: var(--chalk); }
-.btn-ghost { border-color: var(--on-orange); color: var(--on-orange); }
-.top .btn { padding: 9px 16px; font-size: .9rem; }
-@media (max-width: 860px) {
+@media (max-width: 900px) {
+  .top .wrap { grid-template-columns: 1fr auto; }
   .nav { display: none; }
-  .nav-m { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; padding: 0 14px 10px; }
+  .nav-m { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; padding: 0 max(var(--gutter), env(safe-area-inset-left)) 12px; }
   .nav-m::-webkit-scrollbar { display: none; }
-  .nav-m a { flex: none; font-family: var(--label); font-weight: 600; text-transform: uppercase; letter-spacing: .08em; font-size: .85rem; text-decoration: none; color: var(--muted); padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px; }
-  .nav-m a:hover, .nav-m a:focus-visible { color: var(--chalk); border-color: var(--muted); }
-  section[id], main [id] { scroll-margin-top: 112px; }
+  .nav-m a { flex: none; padding: 7px 16px; border: 1px solid var(--hairline); border-radius: 30px; font-size: .9rem; font-weight: 500; text-decoration: none; }
+  .nav-m a:hover { background: var(--cloud); }
+  [id] { scroll-margin-top: 120px; }
 }
-@media (max-width: 420px) { .brand span { font-size: 1.1rem; } .top .btn { padding: 8px 12px; font-size: .8rem; } }
+@media (max-width: 420px) { .utility .hide-xs { display: none; } .brand span { font-size: 1.05rem; } }
 
-/* ---------- Héroe ---------- */
-.hero { background: var(--orange); color: var(--on-orange); position: relative; overflow: hidden; }
-.hero svg.court { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
-.hero .wrap { position: relative; display: grid; grid-template-columns: 1.35fr .85fr; gap: 40px; align-items: center; padding-block: clamp(48px, 8vw, 96px); }
-.hero-copy { min-width: 0; display: grid; gap: 22px; }
-.hero h1 { font-size: clamp(3rem, 8vw, 6.4rem); font-weight: 900; }
-.hero h1 em { font-style: normal; display: inline-block; color: var(--orange); background: var(--on-orange); padding: .06em .14em .02em; margin-top: .08em; border-radius: .08em; }
-.hero .lead { font-size: 1.2rem; font-weight: 500; max-width: 38ch; }
-.hero .actions { display: flex; flex-wrap: wrap; gap: 12px; }
-.hero-logo { justify-self: center; width: min(100%, 330px); filter: drop-shadow(0 18px 30px rgba(60, 20, 0, .35)); }
-.stats { display: flex; flex-wrap: wrap; gap: 0; border-top: 2px solid var(--on-orange); margin-top: 8px; }
-.stats div { padding: 14px 28px 0 0; margin-right: 28px; }
-.stats div + div { border-left: 2px solid color-mix(in srgb, var(--on-orange) 30%, transparent); padding-left: 28px; }
-.stats b { display: block; font-family: var(--display); font-size: 2.6rem; font-weight: 900; line-height: 1; }
-.stats span { font-family: var(--label); font-weight: 600; text-transform: uppercase; letter-spacing: .1em; font-size: .85rem; }
-@media (max-width: 820px) {
-  .hero .wrap { grid-template-columns: 1fr; }
-  .hero-logo { display: none; }
+/* ── Portada: fotos a todo el ancho ────────────── */
+.hero { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; min-height: min(86svh, 860px); background: var(--ink); color: var(--canvas); overflow: hidden; }
+.hero picture, .hero img { width: 100%; height: 100%; object-fit: cover; }
+.hero picture:first-child img { object-position: 30% 60%; }
+.hero picture:nth-child(2) img { object-position: 50% 55%; }
+.hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.82) 0%, rgba(0,0,0,.45) 42%, rgba(0,0,0,0) 72%); pointer-events: none; }
+.hero-copy { position: absolute; inset: auto 0 0 0; z-index: 1; padding-bottom: clamp(28px, 6vw, 64px); }
+.hero h1 { font: 400 clamp(3.4rem, 9vw, 6rem)/.9 var(--display); text-transform: uppercase; letter-spacing: -.005em; max-width: 11ch; }
+.hero h1 span { color: var(--orange); }
+.hero p { margin-top: 18px; max-width: 46ch; font-size: clamp(1rem, 1.6vw, 1.15rem); color: #e8e8e8; }
+.hero .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.hero .link { color: var(--canvas); align-self: center; padding: 12px 4px; }
+.hero .link:hover { color: var(--orange); }
+@media (max-width: 720px) {
+  .hero { grid-template-columns: 1fr; min-height: 640px; height: 88svh; max-height: 760px; }
+  .hero picture:nth-child(2) { display: none; }
+  .hero .actions .btn { flex: 1 1 100%; }
 }
-@media (max-width: 520px) {
-  .stats { display: grid; grid-template-columns: repeat(3, 1fr); }
-  .stats div { padding: 14px 10px 0 0; margin: 0; }
-  .stats div + div { padding-left: 12px; }
-  .stats b { font-size: 2rem; }
-  .stats span { font-size: .75rem; letter-spacing: .06em; display: block; line-height: 1.25; margin-top: 4px; }
-  .hero .actions .btn { flex: 1 1 auto; justify-content: center; }
+@media (prefers-reduced-motion: no-preference) {
+  .hero h1 { animation: rise .9s cubic-bezier(.16, 1, .3, 1) both; }
+  .hero p, .hero .actions { animation: rise .9s .12s cubic-bezier(.16, 1, .3, 1) both; }
+  @keyframes rise { from { opacity: 0; transform: translateY(24px); clip-path: inset(0 0 100% 0); } to { opacity: 1; transform: none; clip-path: inset(0 0 -20% 0); } }
 }
 
-/* ---------- Secciones ---------- */
-section { padding-block: clamp(64px, 9vw, 110px); }
-.sec-head { display: grid; gap: 14px; margin-bottom: 40px; max-width: 760px; }
-.sec-head p { color: var(--muted); font-size: 1.1rem; max-width: 60ch; }
-.alt { background: var(--court); border-block: 1px solid var(--line); }
+/* ── Secciones ─────────────────────────────────── */
+section { padding-block: clamp(56px, 8vw, 96px); }
+.sec-title { font: 500 clamp(1.6rem, 2.6vw, 2rem)/1.2 var(--ui); letter-spacing: -.01em; }
+.sec-head { display: flex; justify-content: space-between; align-items: end; gap: 24px; flex-wrap: wrap; margin-bottom: 32px; }
+.sec-head p { color: var(--charcoal); max-width: 60ch; }
+.sec-head .sec-title + p { margin-top: 10px; }
 
-/* Buscador de categoría */
-.finder { display: grid; grid-template-columns: 1fr 1.2fr; gap: 0; border: 1px solid var(--line); border-radius: 18px; overflow: hidden; background: var(--court-2); }
-.finder-in { padding: 32px; display: grid; gap: 16px; align-content: start; border-right: 1px solid var(--line); }
-.finder label { font-family: var(--label); font-weight: 600; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); font-size: .9rem; }
-.finder select { font: 800 2.4rem/1 var(--display); color: var(--chalk); background: var(--ink); border: 2px solid var(--line); border-radius: 12px; padding: 12px 16px; width: 100%; max-width: 260px; cursor: pointer; }
-.finder select:focus { border-color: var(--orange); outline: none; }
-.finder .hint { color: var(--muted); font-size: .95rem; }
-.finder-out { padding: 32px; display: grid; gap: 14px; align-content: start; min-width: 0; }
-.finder-out .cat { font-family: var(--display); font-weight: 900; font-size: clamp(3rem, 8vw, 5rem); line-height: .9; color: var(--orange); text-transform: uppercase; }
-.finder-out .sessions { display: grid; gap: 6px; font-size: 1.05rem; }
-.finder-out .sessions div { display: flex; gap: 12px; }
-.finder-out .sessions b { min-width: 92px; font-family: var(--label); text-transform: uppercase; letter-spacing: .06em; }
-.finder-out .note { color: var(--muted); font-size: .95rem; }
-@media (max-width: 760px) { .finder { grid-template-columns: 1fr; } .finder-in { border-right: 0; border-bottom: 1px solid var(--line); } }
+/* Categoría por año */
+.finder { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 8px; margin-bottom: 48px; }
+.finder-pick { background: var(--cloud); padding: clamp(24px, 4vw, 40px); }
+.finder-pick h3 { font: 500 1rem/1.4 var(--ui); margin-bottom: 4px; }
+.finder-pick > p { color: var(--mute); font-size: .92rem; margin-bottom: 18px; }
+.years { display: flex; flex-wrap: wrap; gap: 8px; }
+.years button { min-width: 72px; min-height: 44px; padding: 8px 16px; border: 1px solid var(--hairline); border-radius: 30px; background: var(--canvas); color: var(--ink); font: 500 1rem/1 var(--ui); font-variant-numeric: tabular-nums; cursor: pointer; transition: background-color .15s ease, color .15s ease, border-color .15s ease; }
+.years button:hover { border-color: var(--ink); }
+.years button[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--canvas); }
+.finder-out { background: var(--orange); color: var(--ink); padding: clamp(24px, 4vw, 40px); display: flex; flex-direction: column; justify-content: space-between; gap: 24px; min-height: 260px; }
+.finder-out .cat { font: 400 clamp(3rem, 7vw, 5.25rem)/.9 var(--display); text-transform: uppercase; }
+.finder-out .age { font-weight: 500; margin-top: 8px; }
+.finder-out ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+.finder-out li { display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; border-top: 1px solid rgba(17,17,17,.25); font-weight: 500; font-variant-numeric: tabular-nums; }
+.finder-out li span { font-weight: 400; }
+@media (max-width: 820px) { .finder { grid-template-columns: 1fr; } }
 
-/* Tablero semanal */
-.board-scroll { overflow-x: auto; margin-top: 56px; }
-.board { width: 100%; min-width: 620px; border-collapse: separate; border-spacing: 8px; font-variant-numeric: tabular-nums; }
-.board th { font-family: var(--label); font-weight: 700; text-transform: uppercase; letter-spacing: .12em; font-size: .95rem; color: var(--muted); text-align: left; padding: 0 4px 6px; }
-.board th.day { color: var(--chalk); }
-.board td { vertical-align: top; }
-.board td.cat-name { font-family: var(--display); font-weight: 900; font-size: 1.7rem; text-transform: uppercase; line-height: 1; white-space: nowrap; padding-top: 14px; }
-.board td.cat-name small { display: block; font-family: var(--label); font-weight: 600; font-size: .8rem; letter-spacing: .1em; color: var(--muted); margin-top: 6px; }
-.slot { background: var(--court-2); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; font-family: var(--display); font-weight: 800; font-size: 1.5rem; line-height: 1; }
-.slot span { display: block; font-family: var(--label); font-weight: 600; font-size: .8rem; letter-spacing: .1em; color: var(--muted); text-transform: uppercase; margin-top: 6px; }
-.slot { transition: background .2s ease, border-color .2s ease, color .2s ease; }
-.slot.on { border-color: var(--orange); background: color-mix(in srgb, var(--orange) 16%, var(--court-2)); }
-.slot.on span { color: var(--chalk); }
-.slot.off { background: transparent; border-style: dashed; color: var(--muted); font-size: .95rem; font-family: var(--label); font-weight: 600; text-transform: uppercase; letter-spacing: .08em; }
-
+/* Horario */
+.schedule { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.schedule caption { text-align: left; font: 500 1.25rem/1.3 var(--ui); padding-bottom: 14px; }
+.schedule th, .schedule td { text-align: left; padding: 18px 16px; border-bottom: 1px solid var(--hairline); vertical-align: top; }
+.schedule thead th { font-size: .82rem; font-weight: 500; color: var(--mute); padding-block: 10px; border-bottom-color: var(--ink); }
+.schedule tbody th { font-weight: 600; width: 28%; }
+.schedule tbody th small { display: block; color: var(--mute); font-weight: 400; font-size: .85rem; margin-top: 2px; }
+.schedule td { font-weight: 500; }
+.schedule td small { display: block; color: var(--mute); font-weight: 400; font-size: .85rem; }
+.schedule td.off { color: var(--mute); font-weight: 400; }
+.schedule tr { transition: background-color .2s ease; }
+.schedule tr.on { background: var(--cloud); }
+.schedule tr.on th::after { content: "Tu categoría"; display: inline-block; margin-left: 10px; padding: 2px 10px; border-radius: 30px; background: var(--ink); color: var(--canvas); font-size: .72rem; font-weight: 500; vertical-align: 2px; }
 @media (max-width: 640px) {
-  .board-scroll { overflow: visible; margin-top: 40px; }
-  .board, .board tbody, .board tr, .board td { display: block; min-width: 0; width: auto; }
-  .board thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
-  .board tr { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; padding: 18px 0; border-top: 1px solid var(--line); }
-  .board td.cat-name { grid-column: 1 / -1; padding: 0 0 4px; display: flex; align-items: baseline; gap: 12px; }
-  .board td.cat-name small { margin: 0; }
-  .slot { padding: 10px 12px; font-size: 1.3rem; height: 100%; }
-  .slot::before { content: attr(data-day); display: block; font-family: var(--label); font-weight: 700; font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
-  .slot.off { display: flex; flex-direction: column; justify-content: flex-start; font-size: .85rem; }
+  .schedule caption { display: block; width: auto; }
+  .schedule thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .schedule, .schedule tbody, .schedule tr, .schedule th, .schedule td { display: block; width: auto; }
+  .schedule tr { display: grid; grid-template-columns: repeat(3, 1fr); border-bottom: 1px solid var(--hairline); padding: 16px 8px; }
+  .schedule tbody th { grid-column: 1 / -1; width: auto; padding: 0 0 10px; border: 0; }
+  .schedule td { padding: 0 4px 0 0; border: 0; font-size: .95rem; }
+  .schedule td::before { content: attr(data-day); display: block; font-size: .75rem; color: var(--mute); font-weight: 500; margin-bottom: 2px; }
+  .schedule tr.on th::after { margin-left: 8px; }
 }
 
-/* El club */
-.club-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 56px; align-items: start; }
-.club-grid > * { min-width: 0; }
-.story { display: grid; gap: 18px; font-size: 1.12rem; }
-.story h2 { margin-bottom: 6px; }
-.story p { max-width: 62ch; }
-.mv { display: grid; gap: 20px; }
-.mv article { border-top: 2px solid var(--orange); padding-top: 16px; display: grid; gap: 8px; }
-.mv p { color: var(--muted); }
-.values { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; margin-top: 64px; }
-.values div { background: var(--court); padding: 26px 22px; display: grid; gap: 8px; align-content: start; }
-.values h3 { font-size: 1.5rem; }
-.values p { color: var(--muted); font-size: .98rem; }
-@media (max-width: 860px) { .club-grid { grid-template-columns: 1fr; gap: 40px; } .values { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 460px) { .values { grid-template-columns: 1fr; } }
+/* Campaña naranja: el club */
+.campaign { background: var(--orange); color: var(--ink); }
+.campaign-title { font: 400 clamp(3.4rem, 10vw, 6rem)/.9 var(--display); text-transform: uppercase; max-width: 12ch; }
+.campaign-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 5vw, 80px); margin-top: 40px; }
+.campaign-grid p { font-size: 1.12rem; max-width: 56ch; }
+.campaign-grid p + p { margin-top: 14px; }
+.mv h3 { font: 500 1.25rem/1.3 var(--ui); padding-top: 14px; border-top: 2px solid var(--ink); }
+.mv p { font-size: 1rem !important; margin-top: 8px; }
+.mv > div + div { margin-top: 28px; }
+.values { list-style: none; margin: clamp(40px, 6vw, 72px) 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0 24px; }
+.values li { padding-top: 14px; border-top: 1px solid rgba(17,17,17,.35); }
+.values b { display: block; font: 400 1.6rem/1 var(--display); text-transform: uppercase; margin-bottom: 8px; }
+.values span { font-size: .95rem; }
+@media (max-width: 860px) { .campaign-grid { grid-template-columns: 1fr; } .values { grid-template-columns: 1fr 1fr; gap: 24px; } }
 
-/* Formación integral */
-.pillars { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-.pillars div { padding: 24px 0 0; border-top: 1px solid var(--line); display: grid; gap: 8px; }
-.pillars b { font-family: var(--display); font-weight: 900; font-size: 1.9rem; text-transform: uppercase; line-height: 1; }
-.pillars p { color: var(--muted); font-size: .98rem; }
-@media (max-width: 860px) { .pillars { grid-template-columns: repeat(2, 1fr); gap: 28px 20px; } }
+/* Cómo entrenamos */
+.pillars { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
+.pillars div { border-top: 2px solid var(--ink); padding-top: 16px; }
+.pillars h3 { font: 400 2.25rem/1 var(--display); text-transform: uppercase; margin-bottom: 10px; }
+.pillars p { color: var(--charcoal); }
+@media (max-width: 860px) { .pillars { grid-template-columns: 1fr 1fr; gap: 32px 24px; } }
+@media (max-width: 480px) { .pillars { grid-template-columns: 1fr; } }
 
 /* Inscripción */
-.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 48px; counter-reset: s; }
-.steps li { list-style: none; display: grid; gap: 8px; padding: 24px; background: var(--court-2); border: 1px solid var(--line); border-radius: 16px; }
-.steps li::before { counter-increment: s; content: "Paso " counter(s); font-family: var(--label); font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--orange); font-size: .85rem; }
-.steps p { color: var(--muted); font-size: .98rem; }
-.steps { padding: 0; margin-top: 0; }
-.prices { display: grid; grid-template-columns: 1fr; max-width: 640px; }
-.price { display: flex; align-items: baseline; gap: 16px; padding: 20px 0; border-bottom: 1px solid var(--line); }
-.price .what { flex: 1; min-width: 0; }
-.price .what b { display: block; font-size: 1.15rem; font-weight: 600; }
-.price .what span { color: var(--muted); font-size: .95rem; }
-.price .cost { font-family: var(--display); font-weight: 900; font-size: 2.2rem; line-height: 1; font-variant-numeric: tabular-nums; white-space: nowrap; }
-.price.feature .cost { color: var(--orange); }
-.fine { color: var(--muted); font-size: .92rem; margin-top: 20px; }
-@media (max-width: 860px) { .steps { grid-template-columns: 1fr; } .prices { grid-template-columns: 1fr; } }
+.join { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 8px; }
+.steps { list-style: none; margin: 0; padding: clamp(24px, 4vw, 40px); background: var(--cloud); counter-reset: s; display: grid; gap: 24px; }
+.steps li { counter-increment: s; display: grid; grid-template-columns: 48px 1fr; gap: 16px; }
+.steps li::before { content: counter(s); display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--ink); color: var(--canvas); font: 400 1.3rem/1 var(--display); }
+.steps h3 { font: 500 1.15rem/1.3 var(--ui); }
+.steps p { color: var(--charcoal); margin-top: 4px; }
+.prices { padding: clamp(24px, 4vw, 40px); border: 1px solid var(--hairline); display: flex; flex-direction: column; }
+.price { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--hairline); }
+.price:first-child { padding-top: 0; }
+.price b { display: block; font-weight: 600; font-size: 1.1rem; }
+.price span { color: var(--mute); font-size: .92rem; }
+.price .cost { font: 400 2.4rem/1 var(--display); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.prices .fine { color: var(--mute); font-size: .88rem; margin-top: auto; padding-top: 18px; }
+.prices .btn { margin-top: 20px; align-self: flex-start; }
+@media (max-width: 820px) { .join { grid-template-columns: 1fr; } }
 
-/* Cortesía */
-.cta { background: var(--orange); color: var(--on-orange); border-radius: 24px; padding: clamp(32px, 6vw, 64px); display: grid; grid-template-columns: 1.4fr 1fr; gap: 32px; align-items: center; position: relative; overflow: hidden; }
-.cta > * { position: relative; min-width: 0; }
-.cta h2 { font-size: clamp(2.4rem, 6vw, 4.2rem); }
-.cta p { font-size: 1.15rem; font-weight: 500; max-width: 42ch; margin-top: 14px; }
-.cta .actions { display: grid; gap: 12px; justify-items: start; }
-.cta .num { font-family: var(--display); font-weight: 900; font-size: 2rem; letter-spacing: .02em; text-decoration: none; }
-.cta .num:hover { text-decoration: underline; text-decoration-thickness: 2px; }
-.cta .ring { position: absolute; right: -120px; top: -120px; width: 420px; height: 420px; border: 3px solid color-mix(in srgb, var(--on-orange) 18%, transparent); border-radius: 50%; }
-@media (max-width: 760px) { .cta { grid-template-columns: 1fr; } }
+/* Uniformes como producto */
+.kits { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.kit { display: grid; gap: 4px; }
+.kit-img { background: var(--cloud); aspect-ratio: 1; display: grid; place-items: center; overflow: hidden; }
+.kit-img img { width: 100%; height: 100%; object-fit: contain; transition: transform .5s cubic-bezier(.16, 1, .3, 1); }
+.kit:hover .kit-img img { transform: scale(1.03); }
+.kit-img.dark { background: #1b1b1c; }
+.kit h3 { font: 500 1rem/1.5 var(--ui); margin-top: 12px; }
+.kit p { color: var(--mute); font-size: .92rem; }
+.kit .cost { font-weight: 500; margin-top: 4px; font-variant-numeric: tabular-nums; }
+@media (max-width: 560px) { .kits { grid-template-columns: 1fr; } }
+
+/* Campaña final sobre foto */
+.closer { position: relative; color: var(--canvas); background: var(--ink); overflow: hidden; padding: 0; }
+.closer img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; opacity: .55; }
+.closer .wrap { position: relative; min-height: 560px; display: flex; flex-direction: column; justify-content: flex-end; padding-block: clamp(48px, 8vw, 96px); }
+.closer h2 { font: 400 clamp(3rem, 9vw, 6rem)/.9 var(--display); text-transform: uppercase; max-width: 13ch; }
+.closer p { margin-top: 18px; max-width: 48ch; font-size: 1.1rem; color: #ececec; }
+.closer .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.closer .link { color: var(--canvas); padding: 12px 4px; align-self: center; font-variant-numeric: tabular-nums; }
+.closer .link:hover { color: var(--orange); }
 
 /* Contacto */
-.contact { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-.contact > div { background: var(--court-2); border: 1px solid var(--line); border-radius: 16px; padding: 24px; display: grid; gap: 10px; align-content: start; min-width: 0; }
-.contact .v { font-size: 1.15rem; font-weight: 600; overflow-wrap: anywhere; text-decoration: none; }
-.contact a.v:hover { color: var(--orange); }
-.contact .row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
-.mini { font-family: var(--label); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; font-size: .8rem; color: var(--chalk); background: transparent; border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; cursor: pointer; text-decoration: none; }
-.mini:hover { border-color: var(--orange); color: var(--orange); }
-.team-title { margin: 56px 0 0; font-size: 1.6rem; }
-.board-members { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 16px; }
-.board-members div { padding: 18px 0; border-top: 1px solid var(--line); }
-.board-members span { display: block; font-family: var(--label); font-weight: 600; text-transform: uppercase; letter-spacing: .1em; font-size: .8rem; color: var(--muted); }
-.board-members b { font-weight: 600; }
-@media (max-width: 860px) { .contact, .board-members { grid-template-columns: 1fr; } }
+.contact { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--ink); }
+.contact > div { padding: 20px 24px 24px 0; }
+.contact > div + div { padding-left: 24px; border-left: 1px solid var(--hairline); }
+.contact h3 { font-size: .85rem; font-weight: 500; color: var(--mute); margin-bottom: 8px; }
+.contact .v { display: block; font-size: 1.2rem; font-weight: 600; text-decoration: none; overflow-wrap: anywhere; }
+.contact a.v:hover { text-decoration: underline; }
+.contact .row { display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap; }
+.pill-sm { min-height: 36px; padding: 6px 16px; border-radius: 30px; border: 1px solid var(--hairline); background: var(--canvas); font: 500 .88rem/1 var(--ui); color: var(--ink); text-decoration: none; display: inline-flex; align-items: center; cursor: pointer; transition: background-color .15s ease, border-color .15s ease; }
+.pill-sm:hover { border-color: var(--ink); }
+.team { margin-top: 56px; }
+.team h3 { font: 500 1.25rem/1.3 var(--ui); margin-bottom: 14px; }
+.team ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.team li { background: var(--cloud); padding: 18px 20px; }
+.team li span { display: block; color: var(--mute); font-size: .85rem; }
+.team li b { font-weight: 600; }
+@media (max-width: 760px) {
+  .contact, .team ul { grid-template-columns: 1fr; }
+  .contact > div + div { padding-left: 0; border-left: 0; border-top: 1px solid var(--hairline); }
+}
 
-/* Fotos */
-.photos { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 64px; }
-.photos figure { margin: 0; position: relative; border-radius: 18px; overflow: hidden; background: var(--court-2); aspect-ratio: 4 / 5; max-width: 100%; }
-.photos img { width: 100%; height: 100%; object-fit: cover; }
-.ph-a img { object-position: 40% 70%; }
-.photos figcaption { position: absolute; inset: auto 0 0 0; padding: 60px 24px 22px; background: linear-gradient(to top, rgba(14,11,9,.92), rgba(14,11,9,0)); display: grid; gap: 4px; }
-.photos figcaption b { font-family: var(--display); font-weight: 900; font-size: 1.7rem; text-transform: uppercase; line-height: 1; }
-.photos figcaption span { color: var(--chalk); font-size: .98rem; max-width: 40ch; }
-@media (max-width: 640px) { .photos { grid-template-columns: 1fr; } }
-
-/* Uniformes */
-.kits { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-.kit { border: 1px solid var(--line); border-radius: 18px; overflow: hidden; background: var(--court-2); display: flex; flex-direction: column; min-width: 0; }
-.kit-img { position: relative; background: #1a1612; aspect-ratio: 1 / 1; width: 100%; max-width: 100%; overflow: hidden; }
-.kit-img.light { background: #ece9e4; }
-.kit-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
-.kit-info { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 10px 16px; padding: 22px 28px 24px; border-top: 1px solid var(--line); margin-top: auto; }
-.kit-info > div { min-width: 0; }
-.kit-info span { display: block; color: var(--muted); font-size: .95rem; margin-top: 6px; }
-.kit-info .cost { font-family: var(--display); font-weight: 900; font-size: 2.2rem; line-height: 1; color: var(--orange); white-space: nowrap; }
-@media (max-width: 700px) { .kits { grid-template-columns: 1fr; } }
-
-footer { border-top: 1px solid var(--line); padding-block: 40px; color: var(--muted); font-size: .92rem; }
-footer .wrap { display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: center; }
-footer img { width: 64px; }
+/* Pie */
+footer { border-top: 1px solid var(--hairline-soft); padding-block: 40px calc(40px + env(safe-area-inset-bottom)); color: var(--mute); font-size: .85rem; }
+footer .wrap { display: grid; grid-template-columns: auto 1fr; gap: 20px; align-items: start; }
+footer img { width: 44px; height: auto; }
 footer p + p { margin-top: 6px; }
+footer b { color: var(--ink); font-weight: 600; }
+footer a { color: var(--ink); }
 </style>
 </head>
 <body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
 
+<div class="utility">
+  <div class="wrap">
+    <span>Bello, Antioquia <span class="hide-xs">· Desde 1998</span></span>
+    <a href="https://wa.me/573177406028" target="_blank" rel="noopener">WhatsApp 317&nbsp;740&nbsp;6028</a>
+  </div>
+</div>
 
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="#inicio"><img src="img/escudo.png" alt="Escudo del Club Pioneros del Norte"><span>Pioneros del Norte</span></a>
+    <a class="brand" href="#inicio"><img src="img/escudo.png" alt="" width="34" height="43"><span translate="no">Pioneros del Norte</span></a>
     <nav class="nav" aria-label="Secciones">
-      <a href="#categorias">Categorías</a>
+      <a href="#categorias">Horarios</a>
       <a href="#club">El club</a>
       <a href="#inscripcion">Inscripción</a>
       <a href="#uniformes">Uniformes</a>
       <a href="#contacto">Contacto</a>
     </nav>
-    <a class="btn btn-orange" href="#cortesia">Clase de cortesía</a>
+    <a class="btn btn-ink" href="#cortesia">Clase de cortesía</a>
   </div>
   <nav class="nav-m" aria-label="Secciones">
     <a href="#categorias">Horarios</a>
@@ -281,204 +294,196 @@ footer p + p { margin-top: 6px; }
   </nav>
 </header>
 
-<main>
-  <section class="hero" id="inicio" style="padding-block:0">
-    <svg class="court" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-      <g fill="none" stroke="#120c07" stroke-opacity=".13" stroke-width="4">
-        <rect x="-10" y="40" width="1220" height="620"></rect>
-        <line x1="600" y1="40" x2="600" y2="660"></line>
-        <circle cx="600" cy="350" r="90"></circle>
-        <rect x="1000" y="250" width="210" height="200"></rect>
-        <circle cx="1000" cy="350" r="90"></circle>
-        <path d="M1210 90 H1150 A300 300 0 0 0 1150 610 H1210"></path>
-        <rect x="-10" y="250" width="210" height="200"></rect>
-        <path d="M-10 90 H50 A300 300 0 0 1 50 610 H-10"></path>
-      </g>
-    </svg>
-    <div class="wrap">
-      <div class="hero-copy">
-        <h1>Formando jugadores en Bello <em>desde 1998</em></h1>
-        <p class="lead">Baloncesto para niños y jóvenes nacidos entre 2008 y 2016 en la Placa Deportiva El Carmen, con entrenadores calificados y formación física, técnica, táctica y psicológica.</p>
+<main id="contenido">
+  <section class="hero" id="inicio" aria-labelledby="titulo" style="padding:0">
+    <picture>
+      <source media="(max-width: 720px)" srcset="img/entrenamiento-1-sm.webp" type="image/webp">
+      <source srcset="img/entrenamiento-1.webp" type="image/webp">
+      <img src="img/entrenamiento-1.jpg" alt="Jugadores del club con camisilla naranja entrenando de noche en la Placa Deportiva El Carmen" width="1100" height="1467" fetchpriority="high">
+    </picture>
+    <picture>
+      <source srcset="img/entrenamiento-2.webp" type="image/webp">
+      <img src="img/entrenamiento-2.jpg" alt="El entrenador reúne al equipo en el centro de la cancha" width="1100" height="1467" loading="lazy">
+    </picture>
+    <div class="hero-copy">
+      <div class="wrap">
+        <h1 id="titulo">Formando jugadores <span>desde 1998</span></h1>
+        <p>Baloncesto en Bello para niños y jóvenes nacidos entre 2008 y 2016. Entrenadores calificados y formación física, técnica, táctica y psicológica.</p>
         <div class="actions">
-          <a class="btn btn-dark" href="#cortesia">Agenda tu clase de cortesía</a>
-          <a class="btn btn-ghost" href="#categorias">Ver horarios</a>
-        </div>
-        <div class="stats">
-          <div><b id="years">28</b><span>Años de historia</span></div>
-          <div><b>4</b><span>Categorías</span></div>
-          <div><b>3</b><span>Entrenos por semana</span></div>
+          <a class="btn btn-white" href="#cortesia">Agenda tu clase de cortesía</a>
+          <a class="link" href="#categorias">Ver horarios</a>
         </div>
       </div>
-      <img class="hero-logo" src="img/logo-completo.png" alt="Logo del Club Pioneros del Norte, desde 1998">
     </div>
   </section>
 
-  <section id="categorias">
+  <section id="categorias" aria-labelledby="t-cat">
     <div class="wrap">
       <div class="sec-head">
-                <h2>¿En qué categoría juega?</h2>
-        <p>La categoría se define por el año de nacimiento: cuenta la edad que el jugador cumple este año, hasta el 31 de diciembre.</p>
+        <div>
+          <h2 class="sec-title" id="t-cat">¿En qué categoría juega?</h2>
+          <p>La categoría se define por el año de nacimiento: cuenta la edad que el jugador cumple este año.</p>
+        </div>
       </div>
 
       <div class="finder">
-        <div class="finder-in">
-          <label for="year">Año de nacimiento</label>
-          <select id="year"></select>
-          <p class="hint">Elige el año y te mostramos la categoría y los días de entrenamiento.</p>
+        <div class="finder-pick">
+          <h3 id="t-year">Año de nacimiento</h3>
+          <p>Toca el año y te mostramos la categoría y sus horarios.</p>
+          <div class="years" id="years" role="group" aria-labelledby="t-year"></div>
         </div>
         <div class="finder-out" aria-live="polite">
-          <div class="label">Categoría</div>
-          <div class="cat" id="cat-out">Sub 10-12</div>
-          <div class="sessions" id="ses-out"></div>
-          <p class="note" id="note-out"></p>
+          <div>
+            <div class="cat" id="cat-out">Sub 10-12</div>
+            <p class="age" id="age-out"></p>
+          </div>
+          <ul id="ses-out"></ul>
         </div>
       </div>
 
-      <div class="board-scroll">
-        <table class="board" aria-label="Horario semanal de entrenamientos">
-          <thead>
-            <tr><th scope="col">Categoría</th><th scope="col" class="day">Lunes</th><th scope="col" class="day">Miércoles</th><th scope="col" class="day">Viernes</th></tr>
-          </thead>
-          <tbody id="board-body"></tbody>
-        </table>
-      </div>
+      <table class="schedule">
+        <caption>Horario de entrenamientos · Placa Deportiva El Carmen</caption>
+        <thead>
+          <tr><th scope="col">Categoría</th><th scope="col">Lunes</th><th scope="col">Miércoles</th><th scope="col">Viernes</th></tr>
+        </thead>
+        <tbody id="board-body"></tbody>
+      </table>
     </div>
   </section>
 
-  <section class="alt" id="club">
+  <section class="campaign" id="club" aria-labelledby="t-club">
     <div class="wrap">
-      <div class="club-grid">
-        <div class="story">
-                    <h2>Más que baloncesto</h2>
+      <h2 class="campaign-title" id="t-club">Más que baloncesto</h2>
+      <div class="campaign-grid">
+        <div>
           <p>Desde 1998, el Club Pioneros ha sido en Bello un espacio para que niños y jóvenes vivan su pasión por el baloncesto y formen su carácter en un ambiente de valores y compañerismo.</p>
           <p>Contamos con entrenadores calificados y con un grupo de padres comprometidos que apoyan el crecimiento del club. Buscamos que cada jugador crezca dentro de la cancha y también fuera de ella.</p>
         </div>
         <div class="mv">
-          <article>
+          <div>
             <h3>Misión</h3>
             <p>Promover el baloncesto como medio para el desarrollo integral de los jóvenes, con trabajo en equipo, compromiso y superación personal, en un ambiente de formación deportiva de calidad.</p>
-          </article>
-          <article>
+          </div>
+          <div>
             <h3>Visión</h3>
             <p>Ser un referente del baloncesto juvenil, reconocido por su excelencia deportiva y por formar atletas comprometidos con su desarrollo personal y con la comunidad.</p>
-          </article>
+          </div>
         </div>
       </div>
-
-      <div class="values">
-        <div><h3>Compromiso</h3><p>Con el desarrollo personal de cada jugador y con los objetivos del club.</p></div>
-        <div><h3>Trabajo en equipo</h3><p>Juntos alcanzamos metas más grandes.</p></div>
-        <div><h3>Respeto</h3><p>Por compañeros, entrenadores, rivales y árbitros.</p></div>
-        <div><h3>Superación</h3><p>Mejorar siempre, en lo deportivo y en lo personal.</p></div>
-      </div>
-
-      <div class="photos">
-        <figure class="ph-a"><img src="img/entrenamiento-1.jpg" alt="Jugadores del club con camisilla naranja entrenando de noche en la Placa Deportiva El Carmen" loading="lazy"></figure>
-        <figure class="ph-b"><img src="img/entrenamiento-2.jpg" alt="El entrenador reúne al equipo en el centro de la cancha antes del entrenamiento" loading="lazy">
-        </figure>
-      </div>
+      <ul class="values" aria-label="Valores del club">
+        <li><b>Compromiso</b><span>Con el desarrollo personal de cada jugador y con los objetivos del club.</span></li>
+        <li><b>Trabajo en equipo</b><span>Juntos alcanzamos metas más grandes.</span></li>
+        <li><b>Respeto</b><span>Por compañeros, entrenadores, rivales y árbitros.</span></li>
+        <li><b>Superación</b><span>Mejorar siempre, en lo deportivo y en lo personal.</span></li>
+      </ul>
     </div>
   </section>
 
-  <section>
+  <section aria-labelledby="t-how">
     <div class="wrap">
       <div class="sec-head">
-                <h2>Cómo entrenamos</h2>
-        <p>Nuestros programas trabajan cuatro frentes, porque un buen jugador se construye completo.</p>
+        <div>
+          <h2 class="sec-title" id="t-how">Cómo entrenamos</h2>
+          <p>Nuestros programas trabajan cuatro frentes, porque un buen jugador se construye completo.</p>
+        </div>
       </div>
       <div class="pillars">
-        <div><b>Físico</b><p>Coordinación, velocidad, resistencia y fuerza adecuadas a cada edad.</p></div>
-        <div><b>Técnico</b><p>Fundamentos: manejo de balón, pase, tiro, rebote y defensa.</p></div>
-        <div><b>Táctico</b><p>Lectura del juego, sistemas ofensivos y defensivos, y juego en equipo.</p></div>
-        <div><b>Psicológico</b><p>Disciplina, confianza, manejo de la presión y trabajo con otros.</p></div>
+        <div><h3>Físico</h3><p>Coordinación, velocidad, resistencia y fuerza adecuadas a cada edad.</p></div>
+        <div><h3>Técnico</h3><p>Fundamentos: manejo de balón, pase, tiro, rebote y defensa.</p></div>
+        <div><h3>Táctico</h3><p>Lectura del juego, sistemas ofensivos y defensivos, y juego en equipo.</p></div>
+        <div><h3>Psicológico</h3><p>Disciplina, confianza, manejo de la presión y trabajo con otros.</p></div>
       </div>
     </div>
   </section>
 
-  <section class="alt" id="inscripcion">
+  <section id="inscripcion" aria-labelledby="t-join" style="padding-top:0">
     <div class="wrap">
-      <div class="sec-head">
-                <h2>Así se entra al club</h2>
-      </div>
-      <ol class="steps">
-        <li><h3>Clase de cortesía</h3><p>Ven a un entrenamiento de tu categoría sin costo y conoce al equipo.</p></li>
-        <li><h3>Matrícula</h3><p>Pagas la matrícula, que ya incluye la primera mensualidad.</p></li>
-        <li><h3>A entrenar</h3><p>Desde el segundo mes pagas la mensualidad y sigues entrenando tres veces por semana.</p></li>
-      </ol>
-
-      <div class="prices">
-        <div>
-          <div class="price feature"><div class="what"><b>Matrícula</b><span>Incluye la primera mensualidad</span></div><div class="cost">$85.000</div></div>
-          <div class="price"><div class="what"><b>Mensualidad</b><span>Desde el segundo mes</span></div><div class="cost">$65.000</div></div>
+      <div class="sec-head"><h2 class="sec-title" id="t-join">Así se entra al club</h2></div>
+      <div class="join">
+        <ol class="steps">
+          <li><div><h3>Clase de cortesía</h3><p>Ven a un entrenamiento de tu categoría sin costo y conoce al equipo.</p></div></li>
+          <li><div><h3>Matrícula</h3><p>Pagas la matrícula, que ya incluye la primera mensualidad.</p></div></li>
+          <li><div><h3>A entrenar</h3><p>Desde el segundo mes pagas la mensualidad y sigues entrenando tres veces por semana.</p></div></li>
+        </ol>
+        <div class="prices">
+          <div class="price"><div><b>Matrícula</b><span>Incluye la primera mensualidad</span></div><div class="cost">$85.000</div></div>
+          <div class="price"><div><b>Mensualidad</b><span>Desde el segundo mes</span></div><div class="cost">$65.000</div></div>
+          <a class="btn btn-ink" href="#cortesia">Empieza con la clase de cortesía</a>
+          <p class="fine">Valores en pesos colombianos. Los datos para el pago te los enviamos por WhatsApp.</p>
         </div>
       </div>
-      <p class="fine">Valores en pesos colombianos. Los datos para el pago te los enviamos por WhatsApp.</p>
     </div>
   </section>
 
-  <section id="uniformes">
+  <section id="uniformes" aria-labelledby="t-kit" style="padding-top:0">
     <div class="wrap">
       <div class="sec-head">
-                <h2>Los colores del club</h2>
-        <p>Naranja y negro, con el escudo al pecho. La camisilla es para entrenar; el uniforme completo es para los partidos y torneos.</p>
+        <div>
+          <h2 class="sec-title" id="t-kit">Los colores del club</h2>
+          <p>Naranja y negro, con el escudo al pecho. La camisilla es para entrenar; el uniforme completo, para partidos y torneos.</p>
+        </div>
       </div>
       <div class="kits">
         <article class="kit">
-          <div class="kit-img light"><img src="img/uniforme-entrenamiento.jpg" alt="Camisilla de entrenamiento naranja con el escudo al frente y 'Pioneros Basketball' atrás" loading="lazy"></div>
-          <div class="kit-info"><div><h3>Entrenamiento</h3><span>Camisilla</span></div><div class="cost">$45.000</div></div>
+          <div class="kit-img"><img src="img/uniforme-entrenamiento.webp" alt="Camisilla de entrenamiento naranja con el escudo al frente y «Pioneros Basketball» atrás" width="900" height="900" loading="lazy"></div>
+          <h3>Camisilla de entrenamiento</h3>
+          <p>Naranja · escudo al frente</p>
+          <div class="cost">$45.000</div>
         </article>
         <article class="kit">
-          <div class="kit-img"><img src="img/uniforme-competencia.jpg" alt="Uniforme de competencia naranja y negro, camiseta y pantaloneta, con nombre y número personalizados" loading="lazy"></div>
-          <div class="kit-info"><div><h3>Competencia</h3><span>Uniforme completo · con nombre y número</span></div><div class="cost">$80.000</div></div>
+          <div class="kit-img dark"><img src="img/uniforme-competencia.webp" alt="Uniforme de competencia naranja y negro, camiseta y pantaloneta, con nombre y número personalizados" width="721" height="778" loading="lazy"></div>
+          <h3>Uniforme de competencia</h3>
+          <p>Camiseta y pantaloneta · con nombre y número</p>
+          <div class="cost">$80.000</div>
         </article>
       </div>
     </div>
   </section>
 
-  <section id="cortesia">
+  <section class="closer" id="cortesia" aria-labelledby="t-cta">
+    <img src="img/entrenamiento-2-sm.webp" alt="" width="660" height="880" loading="lazy">
     <div class="wrap">
-      <div class="cta">
-        <div class="ring" aria-hidden="true"></div>
-        <div>
-          <h2>Tu primera clase va por cuenta del club</h2>
-          <p>Escríbenos con el nombre y la fecha de nacimiento del jugador. Te decimos su categoría y agendamos la clase en el próximo entrenamiento.</p>
-        </div>
-        <div class="actions">
-          <a class="btn btn-dark" href="https://wa.me/573177406028?text=Hola%2C%20quiero%20agendar%20una%20clase%20de%20cortes%C3%ADa%20en%20Pioneros%20del%20Norte" target="_blank" rel="noopener">Escribir por WhatsApp</a>
-          <a class="num" href="tel:+573177406028">317 740 6028</a>
-        </div>
+      <h2 id="t-cta">Tu primera clase va por cuenta del club</h2>
+      <p>Escríbenos con el nombre y la fecha de nacimiento del jugador. Te decimos su categoría y agendamos la clase en el próximo entrenamiento.</p>
+      <div class="actions">
+        <a class="btn btn-orange" href="https://wa.me/573177406028?text=Hola%2C%20quiero%20agendar%20una%20clase%20de%20cortes%C3%ADa%20en%20Pioneros%20del%20Norte" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.5-4.1A8 8 0 1 1 20 11.5Z"/></svg>
+          Escribir por WhatsApp
+        </a>
+        <a class="link" href="tel:+573177406028">o llama al 317&nbsp;740&nbsp;6028</a>
       </div>
     </div>
   </section>
 
-  <section class="alt" id="contacto">
+  <section id="contacto" aria-labelledby="t-contact">
     <div class="wrap">
-      <div class="sec-head">
-                <h2>Encuéntranos</h2>
-      </div>
+      <div class="sec-head"><h2 class="sec-title" id="t-contact">Encuéntranos</h2></div>
       <div class="contact">
         <div>
-          <div class="label">Dónde entrenamos</div>
-          <div class="v">Placa Deportiva El Carmen<br>Bello, Antioquia</div>
-          <div class="row"><a class="mini" href="https://share.google/96Yk4EBzwAdzpKjxh" target="_blank" rel="noopener">Ver en el mapa</a></div>
+          <h3>Dónde entrenamos</h3>
+          <p class="v">Placa Deportiva El Carmen, Bello, Antioquia</p>
+          <div class="row"><a class="pill-sm" href="https://share.google/96Yk4EBzwAdzpKjxh" target="_blank" rel="noopener">Ver en el mapa</a></div>
         </div>
         <div>
-          <div class="label">Teléfono y WhatsApp</div>
-          <a class="v" id="tel" href="tel:+573177406028">317 740 6028</a>
-          <div class="row"><button class="mini" type="button" data-copy="3177406028">Copiar número</button></div>
+          <h3>Teléfono y WhatsApp</h3>
+          <a class="v" href="tel:+573177406028">317&nbsp;740&nbsp;6028</a>
+          <div class="row"><button class="pill-sm" type="button" data-copy="3177406028">Copiar número</button></div>
         </div>
         <div>
-          <div class="label">Correo</div>
-          <a class="v" id="mail" href="mailto:pionerosbello@gmail.com">pionerosbello@gmail.com</a>
-          <div class="row"><button class="mini" type="button" data-copy="pionerosbello@gmail.com">Copiar correo</button></div>
+          <h3>Correo</h3>
+          <a class="v" href="mailto:pionerosbello@gmail.com">pionerosbello@gmail.com</a>
+          <div class="row"><button class="pill-sm" type="button" data-copy="pionerosbello@gmail.com">Copiar correo</button></div>
         </div>
       </div>
+      <p class="sr" aria-live="polite" id="copy-status" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)"></p>
 
-      <h3 class="team-title">Equipo del club</h3>
-      <div class="board-members">
-        <div><span>Presidente</span><b>Efraín Ángel Peña Lopera</b></div>
-        <div><span>Metodología</span><b>Jeferson Mira Espinosa</b></div>
-        <div><span>Entrenador</span><b>Emanuel Barrios Castrillon</b></div>
+      <div class="team">
+        <h3>Equipo del club</h3>
+        <ul>
+          <li><span>Presidente</span><b>Efraín Ángel Peña Lopera</b></li>
+          <li><span>Metodología</span><b>Jeferson Mira Espinosa</b></li>
+          <li><span>Entrenador</span><b>Emanuel Barrios Castrillon</b></li>
+        </ul>
       </div>
     </div>
   </section>
@@ -486,9 +491,9 @@ footer p + p { margin-top: 6px; }
 
 <footer>
   <div class="wrap">
-    <img src="img/escudo.png" alt="">
+    <img src="img/escudo.png" alt="" width="44" height="56" loading="lazy">
     <div>
-      <p><b style="color:var(--chalk)">Club Pioneros del Norte</b> · Bello, Antioquia · Desde 1998</p>
+      <p><b translate="no">Club Pioneros del Norte</b> · Bello, Antioquia · Desde 1998</p>
       <p>Entrenamos en la Placa Deportiva El Carmen · Dirección del club: Carrera 62 # 57A-14, Bello</p>
       <p>Asociación deportiva de derecho privado, sin ánimo de lucro, regida por la Ley 181 de 1995 y sus normas reglamentarias.</p>
       <p><a href="politica-de-privacidad.html">Política de privacidad</a></p>
@@ -499,73 +504,70 @@ footer p + p { margin-top: 6px; }
 <script>
 (function () {
   var CATS = [
-    { name: 'Sub 10-12', min: 10, max: 12, s: { lu: null, mi: ['6:00', '7:30 pm'], vi: ['6:00', '7:30 pm'] } },
-    { name: 'Sub 13',    min: 13, max: 13, s: { lu: ['5:30', '7:00 pm'], mi: ['7:30', '9:20 pm'], vi: ['7:30', '9:20 pm'] } },
-    { name: 'Sub 15',    min: 14, max: 15, s: { lu: ['5:30', '7:00 pm'], mi: ['7:30', '9:20 pm'], vi: ['7:30', '9:20 pm'] } },
-    { name: 'Sub 18',    min: 16, max: 18, s: { lu: ['5:30', '7:00 pm'], mi: ['7:30', '9:20 pm'], vi: ['7:30', '9:20 pm'] } }
+    { name: 'Sub 10-12', min: 10, max: 12, s: { lu: null, mi: ['6:00', '7:30 p. m.'], vi: ['6:00', '7:30 p. m.'] } },
+    { name: 'Sub 13',    min: 13, max: 13, s: { lu: ['5:30', '7:00 p. m.'], mi: ['7:30', '9:20 p. m.'], vi: ['7:30', '9:20 p. m.'] } },
+    { name: 'Sub 15',    min: 14, max: 15, s: { lu: ['5:30', '7:00 p. m.'], mi: ['7:30', '9:20 p. m.'], vi: ['7:30', '9:20 p. m.'] } },
+    { name: 'Sub 18',    min: 16, max: 18, s: { lu: ['5:30', '7:00 p. m.'], mi: ['7:30', '9:20 p. m.'], vi: ['7:30', '9:20 p. m.'] } }
   ];
   var DAYS = [['lu', 'Lunes'], ['mi', 'Miércoles'], ['vi', 'Viernes']];
-  var year = Number(new Intl.DateTimeFormat('en', { timeZone: 'America/Bogota', year: 'numeric' }).format(new Date()));
+  var year = Number(new Intl.DateTimeFormat('es-CO', { timeZone: 'America/Bogota', year: 'numeric' }).format(new Date()));
 
-  document.getElementById('years').textContent = year - 1998;
-
-  function yearsText(c) {
+  function born(c) {
     var a = year - c.max, b = year - c.min;
     return a === b ? 'Nacidos en ' + a : 'Nacidos ' + a + '–' + b;
   }
 
-  // Tablero
+  // Horario
   var body = document.getElementById('board-body');
   CATS.forEach(function (c, i) {
     var tr = document.createElement('tr');
     tr.dataset.i = i;
-    var html = '<td class="cat-name">' + c.name + '<small>' + yearsText(c) + '</small></td>';
+    var html = '<th scope="row">' + c.name + '<small>' + born(c) + '</small></th>';
     DAYS.forEach(function (d) {
       var t = c.s[d[0]];
-      html += t ? '<td><div class="slot" data-day="' + d[1] + '">' + t[0] + '<span>a ' + t[1] + '</span></div></td>'
-                : '<td><div class="slot off" data-day="' + d[1] + '">Descanso</div></td>';
+      html += t ? '<td data-day="' + d[1] + '">' + t[0] + '<small>a ' + t[1] + '</small></td>'
+                : '<td class="off" data-day="' + d[1] + '">Descanso</td>';
     });
     tr.innerHTML = html;
     body.appendChild(tr);
   });
 
-  // Buscador
-  var sel = document.getElementById('year');
-  for (var y = year - 18; y <= year - 10; y++) {
-    var o = document.createElement('option'); o.value = y; o.textContent = y; sel.appendChild(o);
-  }
-  var outCat = document.getElementById('cat-out'), outSes = document.getElementById('ses-out'), outNote = document.getElementById('note-out');
-
-  function update() {
-    var age = year - Number(sel.value);
+  // Años de nacimiento como píldoras
+  var box = document.getElementById('years');
+  var outCat = document.getElementById('cat-out'), outAge = document.getElementById('age-out'), outSes = document.getElementById('ses-out');
+  function pick(y) {
+    box.querySelectorAll('button').forEach(function (b) { b.setAttribute('aria-pressed', String(Number(b.value) === y)); });
+    var age = year - y;
     var idx = CATS.findIndex(function (c) { return age >= c.min && age <= c.max; });
-    document.querySelectorAll('#board-body tr').forEach(function (tr) {
-      tr.querySelectorAll('.slot:not(.off)').forEach(function (s) { s.classList.toggle('on', Number(tr.dataset.i) === idx); });
-    });
-    if (idx < 0) { outCat.textContent = '—'; outSes.innerHTML = ''; outNote.textContent = 'Escríbenos y te orientamos.'; return; }
+    body.querySelectorAll('tr').forEach(function (tr) { tr.classList.toggle('on', Number(tr.dataset.i) === idx); });
+    if (idx < 0) { outCat.textContent = 'Escríbenos'; outAge.textContent = 'Te orientamos por WhatsApp.'; outSes.innerHTML = ''; return; }
     var c = CATS[idx];
     outCat.textContent = c.name;
+    outAge.textContent = 'Cumple ' + age + ' años en ' + year;
     outSes.innerHTML = DAYS.filter(function (d) { return c.s[d[0]]; }).map(function (d) {
-      var t = c.s[d[0]]; return '<div><b>' + d[1] + '</b>' + t[0] + ' a ' + t[1] + '</div>';
+      var t = c.s[d[0]]; return '<li>' + d[1] + '<span>' + t[0] + ' a ' + t[1] + '</span></li>';
     }).join('');
-    outNote.textContent = 'Cumple ' + age + ' años en ' + year + '.';
   }
-  sel.value = year - 11;
-  sel.addEventListener('change', update);
-  update();
+  for (var y = year - 18; y <= year - 10; y++) {
+    var b = document.createElement('button');
+    b.type = 'button'; b.value = y; b.textContent = y; b.setAttribute('aria-pressed', 'false');
+    b.addEventListener('click', function (e) { pick(Number(e.currentTarget.value)); });
+    box.appendChild(b);
+  }
+  pick(year - 11);
 
-  // Copiar
+  // Copiar al portapapeles
+  var status = document.getElementById('copy-status');
   document.querySelectorAll('[data-copy]').forEach(function (b) {
     b.addEventListener('click', function () {
       var label = b.textContent;
-      function done(msg) { b.textContent = msg; setTimeout(function () { b.textContent = label; }, 1600); }
+      function done(msg) { b.textContent = msg; status.textContent = msg; setTimeout(function () { b.textContent = label; }, 1600); }
       try {
-        navigator.clipboard.writeText(b.dataset.copy).then(function () { done('Copiado'); }, function () { done('Selecciónalo arriba'); });
-      } catch (e) { done('Selecciónalo arriba'); }
+        navigator.clipboard.writeText(b.dataset.copy).then(function () { done('Copiado'); }, function () { done('No se pudo copiar'); });
+      } catch (e) { done('No se pudo copiar'); }
     });
   });
 })();
 </script>
-
 </body>
 </html>
